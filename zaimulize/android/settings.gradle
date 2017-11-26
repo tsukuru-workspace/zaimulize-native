@@ -1,0 +1,3 @@
+rootProject.name = 'zaimulize'
+
+include ':app'
