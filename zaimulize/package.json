@@ -9,6 +9,7 @@
     "flow-stop": "flow stop"
   },
   "dependencies": {
+    "prop-types": "^15.6.0",
     "react": "16.0.0",
     "react-native": "0.50.4",
     "react-native-vector-icons": "^4.4.2",
