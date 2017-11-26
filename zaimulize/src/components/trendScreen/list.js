@@ -1,12 +1,9 @@
 /* @flow */
 import React, { Component } from 'react';
 import {
-    Platform,
-    StyleSheet,
     Text,
     View,
-    Button,
-    FlatList,
+    FlatList
 } from 'react-native';
 
 class TrendListScreen extends Component {
@@ -20,15 +17,15 @@ class TrendListScreen extends Component {
             <FlatList
                 key={"companyList"}
                 data={[
-                    {name: '株式会社インベスターズクラウド1'},
-                    {name: '株式会社インベスターズクラウド2'},
-                    {name: '株式会社インベスターズクラウド3'},
-                    {name: '株式会社インベスターズクラウド4'},
+                    {key: '株式会社インベスターズクラウド1'},
+                    {key: '株式会社インベスターズクラウド2'},
+                    {key: '株式会社インベスターズクラウド3'},
+                    {key: '株式会社インベスターズクラウド4'},
                 ]}
                 renderItem={({item}) =>
-                        <View>
-                            <Text onPress={() => navigate("Info")}>{item.name}</Text>
-                        </View>
+                    <View>
+                        <Text onPress={() => navigate("Info")}>{item.key}</Text>
+                    </View>
                 }
             />
         );
