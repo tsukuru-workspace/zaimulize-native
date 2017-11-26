@@ -9,8 +9,8 @@ import {
 } from 'react-native';
 
 class TrendListScreen extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
     }
 
     render() {
