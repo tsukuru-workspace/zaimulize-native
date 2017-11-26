@@ -5,12 +5,18 @@
  */
 
 import React, { Component } from 'react';
+import { TabNavigator } from 'react-navigation';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
+    Platform,
+    StyleSheet,
+    Text,
+    View,
 } from 'react-native';
+import HomeScreen from './src/components/homeScreen/index';
+import TrendScreen from './src/components/trendScreen/index';
+import SearchHistroyScreen from './src/components/searchHistoryScreen/index';
+import TimelyNewsScreen from './src/components/timelyNewsScreen/index';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -19,39 +25,31 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-export default class App extends Component<{}> {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+const RootTabs = TabNavigator({
+   Home: {
+        screen: HomeScreen,
+        navigationOptions: {
+            tabBarLabel: 'Home',
+        },
+   },
+    Trend: {
+      screen: TrendScreen,
+        navigationOptions: {
+            tabBarLabel: 'トレンド',
+        },
+    },
+    SearchHistory: {
+        screen: SearchHistroyScreen,
+        navigationOptions: {
+            tabBarLabel: '検索履歴',
+        },
+    },
+    TimelyNewsScreen: {
+        screen: TimelyNewsScreen,
+        navigationOptions: {
+            tabBarLabel: '適時開示',
+        },
+    },
 });
+
+export default RootTabs;
