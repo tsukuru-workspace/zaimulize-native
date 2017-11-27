@@ -2,11 +2,17 @@
     "env": {
         "react-native/react-native": true
     },
+    "extends": ["plugin:react-native/all", "plugin:flowtype/recommended"],
     "plugins": [
         "react",
-        "react-native"
+        "react-native",
+        "flowtype"
     ],
-    "extends": "plugin:react-native/all",
+    "settings": {
+        "flowtype": {
+            "onlyFilesWithFlowAnnotation": true
+        }
+    },
     "parserOptions": {
         "ecmaVersion": 7,
         "sourceType": "module",
