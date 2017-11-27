@@ -31,7 +31,8 @@
     "flow-bin": "^0.56.0",
     "jest": "21.2.1",
     "react-test-renderer": "16.0.0",
-    "reactotron-react-native": "^1.13.2"
+    "reactotron-react-native": "^1.13.2",
+    "reactotron-redux": "^1.13.0"
   },
   "jest": {
     "preset": "react-native"
