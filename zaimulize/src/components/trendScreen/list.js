@@ -1,7 +1,7 @@
 /* @flow */
 import React, { Component } from 'react';
+import { Container, Header, Content, List, ListItem, Text, Badge } from 'native-base';
 import {
-    Text,
     TextInput,
     View,
     StyleSheet,
@@ -14,86 +14,59 @@ class TrendListScreen extends Component {
     }
 
     render() {
-        const { navigate } = this.props.navigation;
+        const {navigate} = this.props.navigation;
+        var data = [
+            {key: '株式会社インベスターズクラウド1'},
+            {key: '株式会社インベスターズクラウド2'},
+            {key: '株式会社インベスターズクラウド3'},
+            {key: '株式会社インベスターズクラウド4'},
+        ];
         return (
-            <View style={styles.container}>
-                <View style={styles.searchArea}>
-                    <TextInput placeholder={"証券コードまたは企業名を入力"} style={styles.searchTextInput}></TextInput>
-                </View>
-                <View style={styles.body}>
-                    <Text style={styles.title}>トレンド検索</Text>
-                    <View style={styles.filter}>
-                        <Text>すべての業種</Text>
-                    </View>
-                    <View style={styles.list}>
-                        <FlatList
-                            key={"companyList"}
-                            data={[
-                                {key: '株式会社インベスターズクラウド1'},
-                                {key: '株式会社インベスターズクラウド2'},
-                                {key: '株式会社インベスターズクラウド3'},
-                                {key: '株式会社インベスターズクラウド4'},
-                            ]}
-                            renderItem={({item}) =>
-                                    <View style={styles.listItem}>
-                                        <Text style={styles.ListItemRank}>1位</Text>
-                                        <Text onPress={() => navigate("Info")} style={styles.ListItemCompany}>{item.key}</Text>
+            <Container>
+                <Content style={styles.container}>
+                    <View>
+                        <List dataArray={data}
+                            renderRow={(item) =>
+                                <ListItem style={styles.listItem}>
+                                    <View style={styles.listItemRank}>
+                                        <Badge style={styles.rank} info>
+                                            <Text style={styles.rank_text}>1</Text>
+                                        </Badge>
                                     </View>
-                            }
-                        />
+                                    <View style={styles.listItemCompany}>
+                                        <Text onPress={() => navigate("Info")}>{item.key}</Text>
+                                    </View>
+                                </ListItem>
+                            }>
+                        </List>
                     </View>
-                </View>
-            </View>
+                </Content>
+            </Container>
         );
     }
+
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         backgroundColor: '#fff',
-    },
-    searchArea: {
-        padding: 10,
-        backgroundColor: '#66f3ff',
-    },
-    searchTextInput: {
-        height: 30,
-        borderWidth: 1,
-        backgroundColor: '#fff',
-    },
-    body: {
-        flex: 1,
-        flexDirection: 'column',
-        padding: 20,
-    },
-    title: {
-        flexGrow: 1,
-        fontSize: 18,
-        color: '#66f3ff',
-    },
-    filter: {
-        flexGrow: 1,
-    },
-    list: {
-        flexGrow: 14,
     },
     listItem: {
-        padding: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: '#070d09',
-        flexDirection: 'row',
+        flex: 1,
     },
-    ListItemRank: {
-        flexGrow: 1,
+    listItemRank: {
+        marginRight: 10,
+    },
+    listItemCompany: {
+
+    },
+    rank: {
+    },
+    rank_text: {
         fontSize: 11,
-    },
-    ListItemCompany: {
-        flexGrow: 5,
-        fontSize: 13,
-        textDecorationLine: 'underline',
-        textDecorationStyle: 'solid',
+        alignItems: 'center',
     }
+
 });
 
 export default TrendListScreen;
