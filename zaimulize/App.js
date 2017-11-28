@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import AppReducer from './src/reducers';
 import AppWithNavigationState from './src/navigators/AppNavigator';
-
+import './ReactotronConfig';
 
 export default class App extends Component<{}> {
     store = createStore(AppReducer);
